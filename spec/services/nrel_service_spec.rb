@@ -3,13 +3,15 @@ require 'rails_helper'
 describe NrelService do
   context 'instance methods' do
     it '#results' do
-      service = NrelService.new
+      VCR.use_cassette('nrel_service') do
+        service = NrelService.new
 
-      response = JSON.parse(service.results)
+        response = service.get_results
 
-      expect(response.body).to be_an_instance_of(Hash)
-      expect(response.body['data']).to be_an_instance_of(Array)
-      expect(response.body['data'].size).to > 0
+        expect(response).to be_an_instance_of(Hash)
+        expect(response['fuel_stations']).to be_an_instance_of(Array)
+        expect(response['fuel_stations'].size).to > 0
+      end
     end
   end
 end
