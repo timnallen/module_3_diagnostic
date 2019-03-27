@@ -1,8 +1,12 @@
 <section id="results">
   <h3>Total Results: <%= facade.total_results %></h3>
-  <% facade.results do |result| %>
-    <section class="result">
-
-    </section>
+  <% facade.stations do |station| %>
+    <ul class="result">
+      <li class="name"><%= station.name %></li>
+      <li class="address"><%= station.address %></li>
+      <li class="fuel_type"><%= station.fuel_type %></li>
+      <li class="distance"><%= station.distance %></li>
+      <li class="access_times"><%= station.access_times %></li>
+    </ul>
   <% end %>
 </section>

@@ -1,8 +1,12 @@
 class NrelService
   def get_results(zip, limit = nil)
     endpoint = "/api/alt-fuel-stations/v1.json?zip=#{zip}"
-    get_json("/api/alt-fuel-stations/v1.json?zip=#{zip}&limit=#{limit}") if limit
-    get_json("/api/alt-fuel-stations/v1.json?zip=#{zip}") unless limit
+    if limit
+      limit_param = "&limit=#{limit}"
+    else
+      limit_param = ''
+    end
+    get_json(endpoint + limit_param)
   end
 
   def get_json(uri)

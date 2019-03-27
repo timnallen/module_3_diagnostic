@@ -6,7 +6,7 @@ describe NrelService do
       VCR.use_cassette('nrel_service') do
         service = NrelService.new
 
-        response = service.get_results
+        response = service.get_results(80206)
 
         expect(response).to be_an_instance_of(Hash)
         expect(response[:fuel_stations]).to be_an_instance_of(Array)

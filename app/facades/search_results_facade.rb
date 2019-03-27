@@ -11,7 +11,10 @@ class SearchResultsFacade
     NrelService.new
   end
 
-  def results
-    service.get_results(@zip, 15)
+  def stations
+    stations = service.get_results(@zip, 15)[:fuel_stations]
+    stations.map do |result|
+      Station.new(result)
+    end
   end
 end
