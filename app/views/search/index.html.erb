@@ -1,3 +1,8 @@
 <section id="results">
   <h3>Total Results: <%= facade.total_results %></h3>
+  <% facade.results do |result| %>
+    <section class="result">
+
+    </section>
+  <% end %>
 </section>

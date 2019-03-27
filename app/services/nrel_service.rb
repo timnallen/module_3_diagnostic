@@ -1,4 +1,5 @@
 class NrelService
-  def total_results
+  def get_results(quantity = 0)
+    get_json()
   end
 end
