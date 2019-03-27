@@ -9,8 +9,7 @@ describe NrelService do
         response = service.get_results
 
         expect(response).to be_an_instance_of(Hash)
-        expect(response['fuel_stations']).to be_an_instance_of(Array)
-        expect(response['fuel_stations'].size).to > 0
+        expect(response[:fuel_stations]).to be_an_instance_of(Array)
       end
     end
   end

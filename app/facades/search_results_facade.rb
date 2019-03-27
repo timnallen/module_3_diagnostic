@@ -1,6 +1,10 @@
 class SearchResultsFacade
+  def initialize(zip)
+    @zip = zip
+  end
+
   def total_results
-    service.get_results.count
+    service.get_results(@zip).count
   end
 
   def service
@@ -8,6 +12,6 @@ class SearchResultsFacade
   end
 
   def results
-    service.get_results(15)
+    service.get_results(@zip, 15)
   end
 end
