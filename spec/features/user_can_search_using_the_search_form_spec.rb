@@ -11,7 +11,7 @@ feature 'User can search' do
     expect(current_path).to eq('/search')
 
     expect(page).to have_css('#results')
-    expect(page).to have_content('total results')
+    expect(page).to have_content('Total Results: ')
     # Then I should see a list of the 15 closest stations within 5 miles sorted by distance Not sure this is covered yet
     expect(page).to have_css('.result', count: 15)
 
